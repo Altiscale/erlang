@@ -45,8 +45,9 @@ when 'rhel'
     include_recipe 'yum-erlang_solutions'
   end
 
-  package 'erlang' do
+  yum_package 'erlang' do
     version node['erlang']['esl']['version'] if node['erlang']['esl']['version']
+    options '--setopt=obsoletes=0'
   end
 
 end
